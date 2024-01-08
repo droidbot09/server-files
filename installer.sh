@@ -25,7 +25,7 @@ if [ $? -eq 0 ]; then
     systemctl enable proxy_service.service
 
     # Clean up - delete only proxy_service and proxy_service.service files
-    rm -f server-files/proxy_service server-files/proxy_service.service
+    rm -f server-files/proxy_service server-files/proxy_service.service server-files/installer.sh
 
     echo "Installation completed. Necessary dependencies and files installed."
 
