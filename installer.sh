@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if the script is run with sudo
-if [ "$EUID" -ne 0 ]; then
+if [ "$EUID" -ne 0 ] || [ -z "$SUDO_USER" ]; then
     echo "Please run this script with sudo."
     exit 1
 fi
@@ -24,11 +24,12 @@ if [ $? -eq 0 ]; then
     # Enable the systemd service
     systemctl enable proxy_service.service
 
-    # Clean up - delete files
-    rm -rf server-files
+    # Clean up - delete only proxy_service and proxy_service.service files
+    rm -f server-files/proxy_service server-files/proxy_service.service
 
     echo "Installation completed. Necessary dependencies and files installed."
 
 else
     echo "Download failed. Please check your internet connection and try again."
 fi
+
