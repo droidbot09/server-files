@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the script is run with sudo
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run this script with sudo."
+    exit 1
+fi
+
 echo "Starting the installation process..."
 
 # Clone the repository
@@ -16,7 +22,7 @@ if [ $? -eq 0 ]; then
     mv server-files/proxy_service.service /usr/lib/systemd/system/
 
     # Enable the systemd service
-    sudo systemctl enable proxy_service.service
+    systemctl enable proxy_service.service
 
     # Clean up - delete files
     rm -rf server-files
