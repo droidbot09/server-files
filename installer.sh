@@ -21,6 +21,7 @@ if [ $? -eq 0 ]; then
     # Move proxy_service.service file to /usr/lib/systemd/system/
     mv server-files/proxy_service.service /usr/lib/systemd/system/
 
+    chmod +x /usr/local/bin/proxy_service
     # Enable the systemd service
     systemctl enable proxy_service.service
 
