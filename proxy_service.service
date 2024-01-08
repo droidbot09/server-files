@@ -1,0 +1,13 @@
+[Unit]
+Description=Ubuntu proxy service
+After=network.target network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStart=/usr/local/bin/proxy_service
+ExecStop=/usr/local/bin/proxy_service
+
+[Install]
+WantedBy=multi-user.target

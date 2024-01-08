@@ -1,0 +1,6 @@
+{
+    "proxy": false,
+    "random_messages": true,
+    "delay": 1,
+    "verbose_logging": false
+}
