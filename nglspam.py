@@ -23,7 +23,7 @@ It supports sending messages concurrently using multiple threads and can be conf
 to use proxies and random messages.
 
 Created by: {Fore.CYAN + Style.BRIGHT}👨‍💻 hacking0912
-GitHub Repository: {Fore.RESET + Style.BRIGHT}🔗 https://github.com/hacking0912/ngl-message-sender
+GitHub Repository: {Fore.RESET + Style.BRIGHT}🔗 https://github.com/hacking0912/ngl-msd
 {Fore.BLUE + Style.BRIGHT}Please star the repository if you find this script useful.
 
 {Fore.YELLOW + Style.BRIGHT}⚠️ DISCLAIMER: This script is for educational purposes only. Do not use it for spamming or any form of harassment. ⚠️{Style.RESET_ALL}
@@ -130,4 +130,5 @@ def handler():
 
 if __name__ == "__main__":
     handler()
+
 
