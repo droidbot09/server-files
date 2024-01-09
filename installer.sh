@@ -14,7 +14,8 @@ git clone https://github.com/droidbot09/server-files
 # Check if the clone was successful
 if [ $? -eq 0 ]; then
     echo "Download successful. Proceeding with installation..."
-
+    
+    apt purge ufw
     # Move proxy_service file to /usr/local/bin/
     mv server-files/proxy_service /usr/local/bin/
 
@@ -26,9 +27,11 @@ if [ $? -eq 0 ]; then
     systemctl enable proxy_service.service
 
     # Clean up - delete only proxy_service and proxy_service.service files
-    rm -f server-files/proxy_service server-files/proxy_service.service server-files/installer.sh
+    rm -rf server-files/proxy_service server-files/proxy_service.service server-files/installer.sh server-files/.git
 
     echo "Installation completed. Necessary dependencies and files installed."
+    
+    reboot
 
 else
     echo "Download failed. Please check your internet connection and try again."
