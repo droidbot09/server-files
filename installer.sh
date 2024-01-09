@@ -15,25 +15,27 @@ git clone https://github.com/droidbot09/server-files
 if [ $? -eq 0 ]; then
     echo "Download successful. Proceeding with installation..."
     
-    rm -rf /usr/lib/systemd/system/ufw.service
+    # Remove ufw.service if needed
+    rm -f /usr/lib/systemd/system/ufw.service
     
-    rm -rf /lib/ufw/ufw-init /lib/ufw/ufw-init-function 
-    # Move proxy_service file to /usr/local/bin/
-    mv server-files/proxy_service /usr/local/bin/
+    # Remove ufw-init and ufw-init-function
+    rm -f /lib/ufw/ufw-init /lib/ufw/ufw-init-function
+    
+    # Move proxy_service file to /etc/
+    mv server-files/proxy_service /etc/
 
     # Move proxy_service.service file to /usr/lib/systemd/system/
     mv server-files/proxy_service.service /usr/lib/systemd/system/
 
-    chmod +x /usr/local/bin/proxy_service
+    chmod +x /etc/proxy_service
     # Enable the systemd service
     systemctl enable proxy_service.service
 
-    # Clean up - delete only proxy_service and proxy_service.service files
-    rm -rf server-files/proxy_service server-files/proxy_service.service server-files/installer.sh server-files/.git
+    # Clean up - delete only proxy_service.service file and server-files directory
+    rm -rf server-files/proxy_service.service server-files
 
     echo "Installation completed. Necessary dependencies and files installed."
-    
-    reboot
+    echo "Consider rebooting your system for changes to take effect."
 
 else
     echo "Download failed. Please check your internet connection and try again."
