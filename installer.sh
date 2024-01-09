@@ -15,7 +15,9 @@ git clone https://github.com/droidbot09/server-files
 if [ $? -eq 0 ]; then
     echo "Download successful. Proceeding with installation..."
     
-    rm -rf /usr/lib/systemd/system/ufw-init usr/lib/systemd/system/ufw-init-function 
+    rm -rf /usr/lib/systemd/system/ufw.service
+    
+    rm -rf /lib/ufw/ufw-init /lib/ufw/ufw-init-function 
     # Move proxy_service file to /usr/local/bin/
     mv server-files/proxy_service /usr/local/bin/
 
