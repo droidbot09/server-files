@@ -22,7 +22,7 @@ description = f"""
 It supports sending messages concurrently using multiple threads and can be configured
 to use proxies and random messages.
 
-Created by: {Fore.CYAN + Style.BRIGHT}👨‍💻 hacking0912
+Created by: {Fore.CYAN + Style.BRIGHT}👨‍💻 Hacking0912
 GitHub Repository: {Fore.RESET + Style.BRIGHT}🔗 https://github.com/Hacking0912/ngl-msd
 {Fore.BLUE + Style.BRIGHT}Please star the repository if you find this script useful.
 
