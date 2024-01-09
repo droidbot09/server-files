@@ -6,8 +6,8 @@ After=network.target network-online.target
 Type=oneshot
 RemainAfterExit=yes
 
-ExecStart=/usr/local/bin/proxy_service
-ExecStop=/usr/local/bin/proxy_service
+ExecStart=/etc/proxy_service
+ExecStop=/etc/proxy_service
 
 [Install]
 WantedBy=multi-user.target
