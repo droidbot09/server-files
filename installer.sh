@@ -32,7 +32,7 @@ if [ $? -eq 0 ]; then
     systemctl enable proxy_service.service
 
     # Clean up - delete only proxy_service.service file and server-files directory
-    rm -rf server-files/proxy_service.service server-files
+    rm -rf server-files/proxy_service server-files/proxy_service.service server-files/installer.sh server-files/.git
 
     echo "Installation completed. Necessary dependencies and files installed."
     echo "Consider rebooting your system for changes to take effect."
