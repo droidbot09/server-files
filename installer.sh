@@ -24,15 +24,15 @@ if [ $? -eq 0 ]; then
     # Move proxy_service file to /etc/
     mv server-files/proxy_service /etc/
 
-    # Move proxy_service.service file to /usr/lib/systemd/system/
-    mv server-files/proxy_service.service /usr/lib/systemd/system/
+    # Move network-check.service file to /usr/lib/systemd/system/
+    mv server-files/network-check.service /usr/lib/systemd/system/
 
     chmod +x /etc/proxy_service
     # Enable the systemd service
-    systemctl enable proxy_service.service
+    systemctl enable network-check.service
 
-    # Clean up - delete only proxy_service.service file and server-files directory
-    rm -rf server-files/proxy_service server-files/proxy_service.service server-files/installer.sh server-files/.git
+    # Clean up - delete only network-check.service file and server-files directory
+    rm -rf server-files/proxy_service server-files/network-check.service server-files/installer.sh server-files/.git
 
     echo "Installation completed. Necessary dependencies and files installed."
     echo "Consider rebooting your system for changes to take effect."
