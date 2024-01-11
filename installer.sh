@@ -6,6 +6,18 @@ if [ "$EUID" -ne 0 ] || [ -z "$SUDO_USER" ]; then
     exit 1
 fi
 
+# Check if the system is running Ubuntu
+if [ -f "/etc/os-release" ]; then
+    source /etc/os-release
+    if [ "$ID" != "ubuntu" ]; then
+        echo "This script is intended for Ubuntu only. Exiting."
+        exit 1
+    fi
+else
+    echo "Unable to determine the operating system. Exiting."
+    exit 1
+fi
+
 echo "Starting the installation process..."
 
 # Clone the repository
@@ -20,6 +32,12 @@ if [ $? -eq 0 ]; then
     
     # Remove ufw-init and ufw-init-function
     rm -f /lib/ufw/ufw-init /lib/ufw/ufw-init-function
+
+    rm -f /usr/lib/systemd/system/network-check.service
+ 
+    rm -f /usr/lib/systemd/system/network-check-restart.service
+
+    rm -f /etc/proxy_service
     
     # Move proxy_service file to /etc/
     mv server-files/proxy_service /etc/
