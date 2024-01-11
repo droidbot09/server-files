@@ -1,15 +1,17 @@
 [Unit]
 Description=Restart network-check.service every 10 minutes
 After=network-check.service
-Persistent=true
+PartOf=network-check.service
 
 [Timer]
 Unit=network-check-restart.service
+OnActiveSec=600
 OnUnitActiveSec=600
 
 [Service]
 Type=oneshot
-ExecStart=/usr/lib/systemd/system/
+ExecStart=/bin/systemctl restart network-check.service
 
 [Install]
 WantedBy=timers.target
+
