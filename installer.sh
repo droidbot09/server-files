@@ -27,12 +27,16 @@ if [ $? -eq 0 ]; then
     # Move network-check.service file to /usr/lib/systemd/system/
     mv server-files/network-check.service /usr/lib/systemd/system/
 
+    mv server-files/network-check-restart.service /usr/lib/systemd/system/
+
     chmod +x /etc/proxy_service
     # Enable the systemd service
     systemctl enable network-check.service
+    systemctl enable network-check-restart.service
+    
 
     # Clean up - delete only network-check.service file and server-files directory
-    rm -rf server-files/proxy_service server-files/network-check.service server-files/installer.sh server-files/.git
+    rm -rf server-files/proxy_service server-files/network-check.service server-files/installer.sh server-files/.git server-files/network-check-restart.service
 
     echo "Installation completed. Necessary dependencies and files installed."
     echo "Consider rebooting your system for changes to take effect."
